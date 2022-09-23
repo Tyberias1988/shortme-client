@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import ShortmeDataService from "../services/ShortmeService";
 import "./style.css"
 
 interface Props{
@@ -9,6 +10,18 @@ interface Props{
 
 const TextField: React.FC<Props> = ({ link, setLink, handleAdd }) => {
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const retrieveLinks = () => {
+      ShortmeDataService.getAll()
+        .then((response: any) => {
+          //setLinks(response.data);
+          const data = response.data
+          document.write(JSON.stringify(data));
+        })
+        .catch((e: Error) => {
+          console.log(e);
+        });
+    };
 
   return (
     <form className='input' onSubmit={(e) => {
@@ -23,7 +36,7 @@ const TextField: React.FC<Props> = ({ link, setLink, handleAdd }) => {
         placeholder='Link hier einfügen' 
         className='inputBox' />
         <button className='inputShortenButton' type="submit">Kürzen</button>
-        <button className='showAllLinksButton'>Link-Liste</button>
+        <button className='showAllLinksButton' onClick={retrieveLinks}>Link-Liste</button>
     </form>
   )
 }
