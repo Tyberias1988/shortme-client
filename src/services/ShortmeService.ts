@@ -1,11 +1,11 @@
 import http from "../http-common";
-import IShortmeData from "../types/shortme";
+import { IShortmeData } from "../types/shortme";
 
 const getAll = () => {
     return http.get<Array<IShortmeData>>("/links");
 };
 
-const get = (code: string) => {
+const getRedirected = (code: string) => {
     return http.get<IShortmeData>(`/${code}`);
   };
 
@@ -20,7 +20,7 @@ const create = (longURL: string) => {
 
 const ShortmeService = {
     getAll,
-    get,
+    getRedirected,
     create,
   };
   

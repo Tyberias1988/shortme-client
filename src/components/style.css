@@ -25,7 +25,7 @@
     position: absolute;
     width: 100px;
     height: 50px;
-    margin: 124px;
+    margin: 155px;
     border-radius: 50px;
     right: 0px;
     border: none;
@@ -47,9 +47,10 @@
 
 .showAllLinksButton{
     position: absolute;
-    width: 100px;
+    width: 130px;
     height: 50px;
-    margin: 12px;
+    margin: 85px;
+    margin-top: -61px;
     border-radius: 50px;
     right: 0px;
     border: none;
@@ -67,4 +68,43 @@
 .showAllLinksButton:active{
     transform: scale(0.8);
     box-shadow: 0 0 5px black;
+}
+
+.table {
+	border-collapse: collapse;
+    border: 0;
+    margin: 25px 0;
+    width: 50%;
+    min-width: 400px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px black;
+}
+
+.table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: black;
+    color: white;
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 1px solid #009879;
+}
+
+.table tbody tr:hover {
+    color: slategrey;
 }

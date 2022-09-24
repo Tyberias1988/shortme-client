@@ -1,7 +1,6 @@
-export default interface IShortmeData {
-    id?: number | null,
+export interface IShortmeData {
+    id: number,
     code: string,
     originalUrl: string,
-    createdAt?: Date,
-    updatedAt?: Date,
+    createdAt: string,
   }
