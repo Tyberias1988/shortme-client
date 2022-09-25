@@ -34,8 +34,6 @@ const fetchData = async () => {
   response.data.forEach(function(element, index){
     let formatedDate = moment(element.createdAt).format('DD.MM.YYYY - HH:mm:ss');
     response.data[index].createdAt = formatedDate;
-    let shortcodeURL = <Link to='https://localhost:7200/{element.code}'>element.code</Link>
-    response.data[index].code = shortcodeURL.toString();
   });
   setData(response.data);
 }

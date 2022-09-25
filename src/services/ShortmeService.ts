@@ -1,27 +1,22 @@
 import http from "../http-common";
 import { IShortmeData } from "../types/shortme";
 
-const getAll = () => {
-    return http.get<Array<IShortmeData>>("/links");
+const getAll = async () => {
+  return await http.get<Array<IShortmeData>>("/links");
 };
 
-const getRedirected = (code: string) => {
-    return http.get<IShortmeData>(`/${code}`);
-  };
+const getRedirected = async (code: string) => {
+  return await http.get<IShortmeData>(`/${code}`);
+};
 
-/*const create = (data: IShortmeData) => {
-    return http.post<IShortmeData>("/links/", data);
-  };
-*/
-
-const create = (longURL: string) => {
-    return http.put<IShortmeData>("/links/", longURL);
-  };
+const create = async (longURL: string) => {
+  return await http.put<IShortmeData>("/links/", longURL);
+};
 
 const ShortmeService = {
-    getAll,
-    getRedirected,
-    create,
-  };
-  
-  export default ShortmeService;
+  getAll,
+  getRedirected,
+  create,
+};
+
+export default ShortmeService;
