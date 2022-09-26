@@ -29,8 +29,7 @@ function Table(props: Props) {
     useTable({ columns, data });
   
     const onClickRedir = async (code:string) => {
-      const response = await ShortmeService.getRedirected(code);
-      window.location.replace(JSON.stringify(response.data).replaceAll("\"", ""));
+      await ShortmeService.getRedirected(code);
     }
     
   return (
@@ -52,8 +51,8 @@ function Table(props: Props) {
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map((cell) => {
-              if(cell.value == "LoEP97Pw"){
-                return <td {...cell.getCellProps()}><a href ="#" onClick={() => {onClickRedir("LoEP97Pw")}}>{cell.render("Cell")}</a></td>;
+              if(cell.column.Header?.toString() == "Gekürzter Code"){
+                return <td {...cell.getCellProps()}><a href ="#" onClick={() => {onClickRedir(cell.value)}}>{cell.render("Cell")}</a></td>;
               } else {
                 return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>;
               }

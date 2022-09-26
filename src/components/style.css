@@ -25,7 +25,7 @@
     position: absolute;
     width: 100px;
     height: 50px;
-    margin: 155px;
+    margin: 12px;
     border-radius: 50px;
     right: 0px;
     border: none;
@@ -41,31 +41,6 @@
 }
 
 .inputShortenButton:active{
-    transform: scale(0.8);
-    box-shadow: 0 0 5px black;
-}
-
-.showAllLinksButton{
-    position: absolute;
-    width: 130px;
-    height: 50px;
-    margin: 85px;
-    margin-top: -61px;
-    border-radius: 50px;
-    right: 0px;
-    border: none;
-    font-size: 15px;
-    background-color: dodgerblue;
-    color: white;
-    transition: 0.2s all;
-    box-shadow: 0 0 10px black;
-}
-
-.showAllLinksButton:hover{
-    background-color: #388ae2;
-}
-
-.showAllLinksButton:active{
     transform: scale(0.8);
     box-shadow: 0 0 5px black;
 }

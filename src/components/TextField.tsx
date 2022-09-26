@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { IShortmeData } from '../types/shortme';
+import ShortmeService from '../services/ShortmeService';
 import "./style.css"
 
 interface Props{
@@ -10,7 +11,9 @@ interface Props{
 
 const TextField: React.FC<Props> = ({ link, setLink, handleAdd }) => {
     const inputRef = useRef<HTMLInputElement>(null);
-    //const [links, setLinks] = useState<IShortmeData[]>([])
+    const onClick = () => {
+      ShortmeService.create(link);
+    };
 
   return (
     <form className='input' onSubmit={(e) => {
@@ -24,7 +27,7 @@ const TextField: React.FC<Props> = ({ link, setLink, handleAdd }) => {
         onChange={(e) => setLink(e.target.value)}
         placeholder='Link hier einfügen' 
         className='inputBox' />
-        <button className='inputShortenButton' type="submit">Kürzen</button>
+        <button className='inputShortenButton' type="submit" onClick={onClick}>Kürzen</button>
     </form>
   )
 }

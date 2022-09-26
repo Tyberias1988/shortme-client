@@ -6,11 +6,21 @@ const getAll = async () => {
 };
 
 const getRedirected = async (code: string) => {
-  return await http.get<IShortmeData>(`/${code}`);
+  try{
+    return await http.post(`/${code}`)
+  } catch(err){
+    console.log(err)
+  }
+   
 };
 
 const create = async (longURL: string) => {
-  return await http.put<IShortmeData>("/links/", longURL);
+  try{
+    return await http.put<IShortmeData[]>("/links/" + longURL);
+  } catch (err){
+    console.log(err)
+  }
+  
 };
 
 const ShortmeService = {

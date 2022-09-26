@@ -14,13 +14,9 @@ const [link, setLink] = useState<string>("");
 const [data, setData] = useState<IShortmeData[]>([]);
 
 const ShowTable = () => {
-  const [showTable, setShowTable] = React.useState(false)
-  const onClick = () => setShowTable(true)
   return (
     <div className='App'>
-      <br />
-      <input type="submit" value="Links anzeigen" onClick={onClick} className="showAllLinksButton"/>
-      { showTable ? <RenderTable /> : null }
+      { <RenderTable /> }
     </div>
   )
 }
@@ -38,13 +34,10 @@ const fetchData = async () => {
   setData(response.data);
 }
 
-const handleAdd = (e: React.FormEvent) => {
+const handleAdd = async (e: React.FormEvent) => {
   e.preventDefault();
-
-  if(link){
-    //setLinks([...links, {link}])
-    setLink("");
-  }
+    await fetchData();
+    window.location.reload();
 };
 
 useEffect(() => {
@@ -55,6 +48,7 @@ useEffect(() => {
     <span className='header'>ShortMe</span>
     <TextField link={link} setLink={setLink} handleAdd={handleAdd}/>
     <ShowTable />
+    
   </div>
 }
 
